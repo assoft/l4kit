@@ -124,6 +124,7 @@ return array(
 		'Intervention\Image\ImageServiceProvider',
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Teepluss\Theme\ThemeServiceProvider',
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 
 	),
 

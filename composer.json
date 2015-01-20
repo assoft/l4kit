@@ -8,7 +8,8 @@
 		"laravel/framework": "4.2.*",
 		"cartalyst/sentry": "2.1.*",
 		"teepluss/theme": "dev-master",
-		"intervention/image": "~2.0"
+		"intervention/image": "~2.0",
+		"barryvdh/laravel-ide-helper": "~1.11"
 	},
 	"autoload": {
 		"classmap": [
