@@ -1,4 +1,3 @@
-<h3>Admin Dashboard</h3>
-{{link_to('admin/blog/create', 'Yeni blog')}}
-
-{{sha1(date('Y-m-d H:i:s'))}}
+<div class="col-md-2">
+    <a href="#" class="tile tile-primary tile-valign"><span class="fa fa-users"></span></a>
+</div>

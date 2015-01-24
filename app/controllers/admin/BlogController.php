@@ -1,6 +1,6 @@
 <?php
 
-class adminUserController extends \AdminController {
+class BlogController extends AdminController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +9,7 @@ class adminUserController extends \AdminController {
 	 */
 	public function index()
 	{
-		return 'Admin Index Page';
+		$this->theme->of('admin.blog.index')->render();
 	}
 
 

@@ -11,7 +11,7 @@ class AdminController extends \BaseController {
 
 	public function __construct()
 	{
-		$this->theme = Theme::uses('admin');
+		$this->theme = Theme::uses('admin')->layout('dashboard');
 	}
 
 	public function index()

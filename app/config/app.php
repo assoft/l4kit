@@ -125,6 +125,7 @@ return array(
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Teepluss\Theme\ThemeServiceProvider',
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		'Barryvdh\Elfinder\ElfinderServiceProvider',
 
 	),
 

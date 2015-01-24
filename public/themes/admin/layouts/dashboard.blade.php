@@ -316,7 +316,20 @@
                 <!-- START BREADCRUMB -->
                 {{Theme::breadcrumb()->render()}}
                 <!-- END BREADCRUMB -->
-
+                <div class="page-title">
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> {{Theme::get('title')}}</h2>
+                </div>
+                <!-- Messages and Errors -->
+                @if(Session::has('message'))
+                    <div class="alert alert-info">{{Session::get('message')}}</div>
+                @endif
+                @if(Session::has('error'))
+                    <div class="alert alert-info">{{Session::get('error')}}</div>
+                @endif
+                @if(Session::has('success'))
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                @endif
+                <!-- End Messages and Errors
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
                     <div class="row">

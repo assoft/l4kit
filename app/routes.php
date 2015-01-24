@@ -10,8 +10,8 @@ Route::post('admin/login', ['as' => 'login', 'uses' => 'AdminController@postLogi
 Route::get('admin/logout', ['as' => 'logout', 'uses' => 'AdminController@logout']);
 
 Route::group(['prefix' => 'admin', 'before' => 'admin_auth'], function(){
-	Route::resource('blog', 'admin\blogController');
-	Route::resource('reference', 'admin\referenceController');
+	Route::resource('blog', 'BlogController');
+	Route::resource('user', 'UserController');
 
 	// Elfinder
 	Route::get('elfinder', 'Barryvdh\Elfinder\ElfinderController@showIndex');
