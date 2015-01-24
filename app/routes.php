@@ -1,18 +1,21 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
+Route::get('/', function(){
+	return 'Front Page';
+});
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('admin', ['as' => 'admin', 'uses' => 'AdminController@index', 'before' => 'admin_auth']);
+Route::get('admin/login', ['as' => 'login', 'uses' => 'AdminController@getLogin']);
+Route::post('admin/login', ['as' => 'login', 'uses' => 'AdminController@postLogin']);
+Route::get('admin/logout', ['as' => 'logout', 'uses' => 'AdminController@logout']);
 
+Route::group(['prefix' => 'admin', 'before' => 'admin_auth'], function(){
+	Route::resource('blog', 'admin\blogController');
+	Route::resource('reference', 'admin\referenceController');
+
+	// Elfinder
+	Route::get('elfinder', 'Barryvdh\Elfinder\ElfinderController@showIndex');
+	Route::any('elfinder/connector', 'Barryvdh\Elfinder\ElfinderController@showConnector');
+	Route::get('elfinder/ckeditor4', 'Barryvdh\Elfinder\ElfinderController@showCKeditor4');
+	Route::get('elfinder/tinymce', 'Barryvdh\Elfinder\ElfinderController@showTinyMCE4');
 });

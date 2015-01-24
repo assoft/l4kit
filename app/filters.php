@@ -70,6 +70,12 @@ Route::filter('guest', function()
 	if (Auth::check()) return Redirect::to('/');
 });
 
+
+Route::filter('admin_auth', function(){
+	$user = Sentry::getUser();
+	if(!$user || !Sentry::check() || !$user->hasAccess('admin'))
+		return Redirect::to('admin/login');
+});
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter
