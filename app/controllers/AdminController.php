@@ -17,15 +17,19 @@ class AdminController extends \BaseController {
 	public function index()
 	{
 		$this->theme->layout('dashboard');
+		$this->theme->set('title', 'Tavz-Der Yönetim Paneli');
 		return $this->theme->of('admin.dashboard')->render();
 	}
 
 	public function getLogin()
 	{
+		//-------------------------------
+		if(Sentry::check() && Sentry::getUser()->inGroup(Sentry::findGroupById(1)))
+			return $this->theme->of('admin.message')->layout('login')->render();
+		//-------------------------------
 		$this->theme->layout('login');
-		if(!Sentry::check())
-			return $this->theme->of('admin.login')->render();
-		return Redirect::intended('admin');
+		return $this->theme->of('admin.login')->render();
+		//return Redirect::intended('admin');
 	}
 
 	public function postLogin()
@@ -36,13 +40,12 @@ class AdminController extends \BaseController {
 		];
 		try{
 			$user = Sentry::authenticate($credentials, false);
-			if(Sentry::check() && $user->hasAccess('admin'))
-				return Redirect::to('admin');
-			return Redirect::to('admin/login');
+			if(Sentry::check())
+				return Redirect::intended('admin');
 		}
 		catch(\Exception $e)
 		{
-			return Redirect::to('admin/login');
+			return $e->getMessage(); //Redirect::to('admin/login');
 		}
 	}
 

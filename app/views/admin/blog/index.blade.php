@@ -31,7 +31,7 @@
                             <td><span class="label label-success">{{$row->created_at}}</span></td>
                             <td>{{$row->category_title}}</td>
                             <td>
-                                {{ link_to('admin/blog/'. $row->id. '/edit', 'Düzenle', ['class' => 'btn btn-default btn-rounded btn-sm']) }}
+                                {{link_to('admin/blog/'. $row->id. '/edit', 'Düzenle', ['class' => 'btn btn-default btn-rounded btn-sm']) }}
                                 {{Form::open(['url' => 'admin/blog/'.$row->id, 'method' => 'DELETE'])}}
                                 {{Form::submit('Sil', ['class' => 'btn btn-danger btn-rounded btn-sm'])}}
                                 {{Form::close()}}

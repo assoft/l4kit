@@ -9,6 +9,7 @@ class BlogController extends AdminController {
 	 */
 	public function index()
 	{
+		$data = Blog::all();
 		$this->theme->of('admin.blog.index')->render();
 	}
 

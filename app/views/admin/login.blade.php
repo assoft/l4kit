@@ -1,3 +1,6 @@
+@if(Session::has('error'))
+    <div class="alert alert-warning">{{Session::get('error')}}</div>
+@endif
 <div class="login-container">
     <div class="login-box animated fadeInDown">
         <div class="login-logo"></div>

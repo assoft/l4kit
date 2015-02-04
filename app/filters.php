@@ -67,13 +67,17 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	//if (Auth::check()) return Redirect::to('/');
 });
 
 
 Route::filter('admin_auth', function(){
+//	$user = Sentry::getUser();
+//	if(!$user || !Sentry::check() || !$user->hasAccess('admin'))
+//		return Redirect::to('admin/login');
 	$user = Sentry::getUser();
-	if(!$user || !Sentry::check() || !$user->hasAccess('admin'))
+	$admin_group = Sentry::findGroupByName('Administrator');
+	if(!$user || !$user->inGroup($admin_group))
 		return Redirect::to('admin/login');
 });
 /*

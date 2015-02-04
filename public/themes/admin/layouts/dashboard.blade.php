@@ -357,7 +357,7 @@
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                            <a href="admin/logout" class="btn btn-success btn-lg">Çıkış Yap</a>
+                            <a href="logout" class="btn btn-success btn-lg">Çıkış Yap</a>
                             <button class="btn btn-default btn-lg mb-control-close">İptal</button>
                         </div>
                     </div>

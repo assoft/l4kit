@@ -31,7 +31,7 @@
 <!-- END THIS PAGE PLUGINS-->
 
 <!-- START TEMPLATE -->
-{{HTML::script(Theme::path()."/assets/js/settings.js")}}
+{{--{{HTML::script(Theme::path()."/assets/js/settings.js")}}--}}
 
 {{HTML::script(Theme::path()."/assets/js/plugins.js")}}
 {{HTML::script(Theme::path()."/assets/js/actions.js")}}
